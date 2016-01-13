@@ -38,8 +38,6 @@ module Sorcery
   end
 
   module Protocols
-    require 'sorcery/protocols/oauth'
-    require 'sorcery/protocols/oauth2'
   end
 
   module CryptoProviders

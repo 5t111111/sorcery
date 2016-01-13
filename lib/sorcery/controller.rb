@@ -4,6 +4,10 @@ module Sorcery
       klass.class_eval do
         include InstanceMethods
         Config.submodules.each do |mod|
+          if mod == :external
+            Protocols.send(:require, 'sorcery/protocols/oauth')
+            Protocols.send(:require, 'sorcery/protocols/oauth2')
+          end
           begin
             include Submodules.const_get(mod.to_s.split('_').map { |p| p.capitalize }.join)
           rescue NameError
